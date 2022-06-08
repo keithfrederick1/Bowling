@@ -91,7 +91,23 @@ describe("Scoring Bowling", function() {
     assert.equal(result, expected);
   });
 
+  it("should return correct total for string inputs", function(){
+    const string = '165/251/X2/71XX1/7';
+    const result = calcScore(string);
+    const expected = 149;
+    assert.equal(result, expected);
+  })
+
+  it('Should return 300 for all strikes', function(){
+    const string = 'XXXXXXXXXXXX';
+    const result = calcScore(string);
+    const expected = 300;
+    assert.equal(result, expected);
+  })
+
 });
+
+
 
 describe("String conversion", function() {
   it("Should push 10 for 'X'", function (){
@@ -107,4 +123,11 @@ describe("String conversion", function() {
     const expected = [0, 10, 2, 8, 3, 7];
     assert.deepEqual(result, expected);
   });
+
+  it("Should convert given string to correct array equivalent", function(){
+    const string = '165/251/X2/71XX1/7';
+    const result = stringConverter(string);
+    const expected = [1, 6, 5, 5, 2, 5, 1, 9, 10, 2, 8, 7, 1, 10, 10, 1, 9, 7];
+    assert.deepEqual(result, expected);
+  })
 })

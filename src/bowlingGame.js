@@ -15,9 +15,15 @@ const stringConverter = (string) => {
 }
 
 
+
+
 const calcScore = (rolls) => {
-  //rolls = stringConverter(rolls);
- 
+  //works for both string inputs and array inputs
+
+  if(typeof rolls === 'string') {
+    rolls = stringConverter(rolls);
+  }
+  
   let score = 0;
   let frameIndex = 0;
 
@@ -31,7 +37,7 @@ const calcScore = (rolls) => {
     } else {
       const secondRoll = rolls[frameIndex + 1];
       score += firstRoll + secondRoll;
-      if(secondRoll === '/') {
+      if(firstRoll + secondRoll === 10) {
       //spare
       score += rolls[frameIndex + 2];
     }
@@ -40,5 +46,8 @@ const calcScore = (rolls) => {
   }
   return score;
 }
+
+
+
 
 export { calcScore, stringConverter };
