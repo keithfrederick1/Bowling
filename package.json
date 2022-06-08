@@ -1,0 +1,24 @@
+{
+  "name": "bowling",
+  "version": "1.0.0",
+  "description": "code assessment for ChiroTouch",
+  "main": "bowling.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha 'spec/**/*.js' --recursive  --timeout 60000 --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keithfrederick1/Bowling.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keithfrederick1/Bowling/issues"
+  },
+  "homepage": "https://github.com/keithfrederick1/Bowling#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
