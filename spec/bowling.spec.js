@@ -1,5 +1,5 @@
 import chai from 'chai';
-import { calcScore } from '../src/bowlingGame.js';
+import { calcScore, stringConverter } from '../src/bowlingGame.js';
 
 const assert = chai.assert;
 
@@ -75,7 +75,7 @@ describe("Scoring Bowling", function() {
 
   it("Strike in final frame counts bonus throw", function() {
     const rolls = [
-        0, 0, //strike
+        0, 0, 
         0, 0,
         0, 0,
         0, 0,
@@ -92,3 +92,19 @@ describe("Scoring Bowling", function() {
   });
 
 });
+
+describe("String conversion", function() {
+  it("Should push 10 for 'X'", function (){
+    const string = 'XXXXXXXXXX';
+    const result = stringConverter(string);
+    const expected = Array(10).fill(10);
+    assert.deepEqual(result, expected);
+  });
+
+  it("Should push correct spare amount for '/'", function (){
+    const string = '0/2/3/';
+    const result = stringConverter(string);
+    const expected = [0, 10, 2, 8, 3, 7];
+    assert.deepEqual(result, expected);
+  });
+})
